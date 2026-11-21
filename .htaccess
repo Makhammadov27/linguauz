@@ -1,0 +1,9 @@
+# Agar server ildizi loyiha katalogiga yo‘naltirilgan bo‘lsa — so‘rovlar public/ ga o‘tkaziladi,
+# config/, storage/, database/, app/ tashqaridan ochilmaydi.
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(app|config|storage|database|docs)(/|$) - [F,L]
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L]
+</IfModule>

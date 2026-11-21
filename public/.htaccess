@@ -1,0 +1,24 @@
+# Apache: barcha so‘rovlar yagona kirish nuqtasi (index.php) ga yo‘naltiriladi
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Fayl yuklash chegaralari (mod_php uchun). PHP-FPM da .user.ini ishlatiladi.
+<IfModule mod_php.c>
+    php_value upload_max_filesize 20M
+    php_value post_max_size 24M
+</IfModule>
+
+# public/ ichida PHP skriptlari faqat index.php bo‘lishi mumkin
+<FilesMatch "\.(php|phtml|phar)$">
+    Require all denied
+</FilesMatch>
+<Files "index.php">
+    Require all granted
+</Files>

@@ -1,0 +1,10 @@
+# robots.txt faqat qidiruv tizimlari uchun tavsiya; kirish huquqi serverda tekshiriladi.
+User-agent: *
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /review
+Disallow: /attempts
+Disallow: /login
+Disallow: /register
+Disallow: /words/export
+Allow: /

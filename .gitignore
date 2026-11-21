@@ -1,0 +1,7 @@
+# Haqiqiy sozlamalar va maxfiy qiymatlar repozitoriyga kiritilmaydi
+/config/config.php
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/backups/
